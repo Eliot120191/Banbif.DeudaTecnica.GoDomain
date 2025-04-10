@@ -11,6 +11,10 @@ type USUARIO struct {
 	Apellidos string `json:"apellidos" gorm:"type:varchar(200);not null"`
 }
 
+func (USUARIO) TableName() string {
+	return "USUARIO"
+}
+
 func (u *USUARIO) BeforeCreate(tx *gorm.DB) (err error) {
 
 	return

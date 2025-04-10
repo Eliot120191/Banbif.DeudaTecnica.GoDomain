@@ -12,6 +12,10 @@ type ADDRESS struct {
 	Apellidos string `json:"apellidos" gorm:"type:char(200);not null"`*/
 }
 
+func (ADDRESS) TableName() string {
+	return "ADDRESS"
+}
+
 func (u *ADDRESS) BeforeCreate(tx *gorm.DB) (err error) {
 
 	return
