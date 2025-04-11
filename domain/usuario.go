@@ -20,6 +20,5 @@ func (USUARIO) TableName() string {
 }
 
 func (u *USUARIO) BeforeCreate(tx *gorm.DB) (err error) {
-
 	return
 }
