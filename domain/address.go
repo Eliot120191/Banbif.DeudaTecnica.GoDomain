@@ -5,11 +5,12 @@ import (
 )
 
 type ADDRESS struct {
+	BASE
 	ID         int64  `json:"id" gorm:"type:int;not null;primary_key;autoIncrement"`
 	Id_Usuario string `json:"id_usuario" gorm:"type:int;not null"`
 	Address    string `json:"address" gorm:"type:varchar(100);not null"`
-	/*Nombre    string `json:"nombre" gorm:"type:char(200);not null"`
-	Apellidos string `json:"apellidos" gorm:"type:char(200);not null"`*/
+	Tx         string `json:"tx" gorm:"type:varchar(250);not null"`
+	Tipo       string `json:"tipo" gorm:"type:char(1);not null"`
 }
 
 func (ADDRESS) TableName() string {
