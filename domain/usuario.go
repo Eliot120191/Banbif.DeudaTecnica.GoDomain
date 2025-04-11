@@ -5,7 +5,7 @@ import (
 )
 
 type USUARIO struct {
-	BASE
+	BASE           BASE   `json:"base"`
 	Correo         string `json:"correo" gorm:"type:varchar(200);"`
 	Nombre         string `json:"nombre" gorm:"type:varchar(200);not null"`
 	Apellidos      string `json:"apellidos" gorm:"type:varchar(200);not null"`
