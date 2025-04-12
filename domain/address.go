@@ -5,7 +5,7 @@ import (
 )
 
 type ADDRESS struct {
-	BASE       BASE   `json:"base"`
+	BASE       *BASE  `json:"base,omitempty"`
 	ID         int64  `json:"id" gorm:"type:int;not null;primary_key;autoIncrement"`
 	Id_Usuario string `json:"id_usuario" gorm:"type:int;not null"`
 	Address    string `json:"address" gorm:"type:varchar(100);not null"`
