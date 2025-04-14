@@ -5,4 +5,5 @@ type Response interface {
 	GetData() interface{}
 	GetSuccess() bool
 	GetMessage() string
+	StatusCode() int
 }
