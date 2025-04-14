@@ -1,5 +1,7 @@
 package response
 
+import "net/http"
+
 type OperationResponse struct {
 	ID      int64       `json:"id"`
 	Data    interface{} `json:"data"`
@@ -7,8 +9,12 @@ type OperationResponse struct {
 	Message string      `json:"message"`
 }
 
-func ResultOperation(id int64, success bool, message string, data interface{}) Response {
+func Ok(id int64, success bool, message string, data interface{}) Response {
 	return Result(id, success, message, data)
+}
+
+func BadRequest(message string) Response {
+	return Result(0, false, message, http.StatusBadRequest)
 }
 
 func Result(id int64, success bool, message string, data interface{}) Response {
