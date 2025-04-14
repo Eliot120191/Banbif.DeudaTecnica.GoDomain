@@ -10,12 +10,12 @@ type OperationResponse struct {
 	Status  int         `json:"status"`
 }
 
-func Ok(id int64, success bool, message string, status int, data interface{}) Response {
-	return Result(id, success, message, status, data)
+func Success(id int64, message string, data interface{}) Response {
+	return Result(id, true, message, http.StatusOK, data)
 }
 
-func BadRequest(message string) Response {
-	return Result(0, false, message, http.StatusBadRequest, nil)
+func Error(message string, status int, data interface{}) Response {
+	return Result(0, false, message, status, data)
 }
 
 func Result(id int64, success bool, message string, status int, data interface{}) Response {
