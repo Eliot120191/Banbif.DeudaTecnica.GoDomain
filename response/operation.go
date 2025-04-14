@@ -7,13 +7,17 @@ type OperationResponse struct {
 	Message string      `json:"message"`
 }
 
-func (s *OperationResponse) ResultOperation(p OperationResponse) Response {
+func ResultOperation(id int64, success bool, message string, data interface{}) Response {
+	return Result(id, success, message, data)
+}
+
+func Result(id int64, success bool, message string, data interface{}) Response {
 
 	return &OperationResponse{
-		ID:      p.ID,
-		Success: p.Success,
-		Message: p.Message,
-		Data:    p.Data,
+		ID:      id,
+		Success: success,
+		Message: message,
+		Data:    data,
 	}
 }
 
